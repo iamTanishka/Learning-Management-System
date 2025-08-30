@@ -44,14 +44,14 @@ public class Platform {
     public void enrollStudent(User student, Course course) {
         if (student.getRole() == User.Role.Learner) {
             course.enrollStudent(student);
-            System.out.println("\n✅ Success! " + student.getUserName() + " has been enrolled in '" + course.getTitle() + "'.");
+            System.out.println("\n Success! " + student.getUserName() + " has been enrolled in '" + course.getTitle() + "'.");
         } else {
             System.out.println("Error: Only a Learner can enroll in courses.");
         }
     }
 
     public void displayAllCourses() {
-        System.out.println("\n📚 Available Courses on the Platform 📚");
+        System.out.println("\n Available Courses on the Platform ");
         if (courses.isEmpty()) {
             System.out.println("No courses are available at the moment. An instructor must create one first.");
             return;
@@ -62,7 +62,7 @@ public class Platform {
     }
 
     public void displayCoursesByInstructor(User instructor) {
-        System.out.println("\n📖 Courses Created by You (" + instructor.getUserName() + ") 📖");
+        System.out.println("\n Courses Created by You (" + instructor.getUserName() + ") ");
         boolean foundCourses = false;
         for (Course course : courses) {
             if (course.getInstructor() == instructor) {
@@ -141,7 +141,7 @@ public class Platform {
                         Lesson newLesson = new Lesson(lessonId, lessonTitle, lessonContent, videoUrl);
                         createdCourse.addLesson(newLesson);
 
-                        System.out.println("✅ Lesson added successfully to course: " + createdCourse.getTitle());
+                        System.out.println(" Lesson added successfully to course: " + createdCourse.getTitle());
                     }
                 } else if (menuChoice == 2) {
                     platform.displayCoursesByInstructor(newUser);
