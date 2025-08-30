@@ -4,45 +4,58 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Course {
-    private int Courseid;
+    private int courseId;
     private String title;
     private String description;
+    private User instructor;
     private List<Lesson> lessons;
-    public Course(int Courseid, String title, String description  ) {
-        this.Courseid = Courseid;
+    private List<User> enrolledStudents;
+
+    public Course(int courseId, String title, String description, User instructor) {
+        this.courseId = courseId;
         this.title = title;
         this.description = description;
+        this.instructor = instructor; // <-- ADDED
         this.lessons = new ArrayList<>();
-    }
-    public int getcourseid(){
-        return Courseid;
+        this.enrolledStudents = new ArrayList<>();
     }
 
-    public String getDescription() {
-        return description;
+    public int getCourseId() {
+        return courseId;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setCourseid(int courseid) {
-        Courseid = courseid;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void addLesson(Lesson lesson) {
-        lessons.add(lesson);
+    public User getInstructor() {
+        return instructor;
     }
 
     public List<Lesson> getLessons() {
         return lessons;
+    }
+
+    public void addLesson(Lesson lesson) {
+        this.lessons.add(lesson);
+    }
+
+    public void enrollStudent(User student) {
+        this.enrolledStudents.add(student);
+    }
+
+    public void displayDetails() {
+        System.out.println("Course ID: " + courseId);
+        System.out.println("Title: " + title);
+        System.out.println("Description: " + description);
+        System.out.println("Instructor: " + instructor.getUserName()); // <-- MODIFIED: To show instructor
+        System.out.println("Lessons:");
+        if (lessons.isEmpty()) {
+            System.out.println("    No lessons in this course yet.");
+        } else {
+            for (Lesson lesson : lessons) {
+                System.out.println(lesson);
+            }
+        }
     }
 }

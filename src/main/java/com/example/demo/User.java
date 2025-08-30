@@ -1,50 +1,31 @@
 package com.example.demo;
 
 public class User {
-    public enum Role{
+    public enum Role {
         Instructor,
         Learner
     }
-    private int Userid;
-    private String UserName;
-    private String UserEmail;
-    private String UserPassword;
-    private Role role;
-    public User(String UserName, String UserEmail, String UserPassword, Role role){
-        this.UserName=UserName;
-        this.UserEmail=UserEmail;
-        this.UserPassword=UserPassword;
-        this.role=role;
-        this.Userid=Userid;
-    }
 
+    private String userName;
+    private String userEmail;
+    private String password;
+    private Role role;
+
+    public User(String userName, String userEmail, String password, Role role) {
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.password = password;
+        this.role = role;
+    }
     public String getUserName() {
-        return UserName;
+        return userName;
     }
 
     public String getUserEmail() {
-        return UserEmail;
-    }
-
-    public String getUserPassword() {
-        return UserPassword;
+        return userEmail;
     }
 
     public Role getRole() {
         return role;
-    }
-    public void setUserName(String userName) {
-        UserName = userName;
-    }
-
-    public void setUserEmail(String userEmail) {
-        UserEmail = userEmail;
-    }
-
-    public void setUserPassword(String userPassword) {
-        UserPassword = userPassword;
-    }
-    public void setrole(Role role){
-        this.role=role;
     }
 }
